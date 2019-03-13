@@ -1,21 +1,42 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.ManagedDataAccess.EntityFramework.Test
+namespace Be.EntityFramworkCore.SqlServer.Test
 {
     [TestClass]
     public class LastWins
     {
+        public static IConfiguration InitConfiguration()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("settings.json")
+                .Build();
+            return config;
+        }
+
+        public static SqlDbContext CreateContext()
+        {
+            var config = InitConfiguration();
+            var cn = config.GetConnectionString("SqlDatabase");
+            var builder = new DbContextOptionsBuilder<SqlDbContext>()
+                .UseSqlServer(cn);
+
+            var context = new SqlDbContext(builder.Options);
+            return context;
+        }
+
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void DublicateKey()
         {
             var id = Guid.NewGuid();
 
-            using (var cx = new SqlDbContext())
+            using (var cx = CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -25,7 +46,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
                 cx.SaveChanges();
             }
             
-            using (var cx = new SqlDbContext())
+            using (var cx = CreateContext())
             {
                 try
                 {
@@ -38,14 +59,11 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
                 }
                 catch(DbUpdateException dex)
                 {
-                    //var oex = dex.InnerException?.InnerException as OracleException;
-                    //if(oex != null)
-                    //{
-                    //    if(oex.Number == 1) // 1 = dublicate key error number
-                    //    {
-                    //        throw new Exception("dublicate key", dex);
-                    //    }
-                    //}
+                    var oex = dex.InnerException as SqlException;
+                    if(oex?.Number == 2627)
+                    {
+                        throw new Exception("dublicate key", dex);
+                    }
                 }
             }
         }
@@ -121,7 +139,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
 
         public OptiContext<SqlDbContext, LastWinsEntity> CreateOptiContext()
         {
-            var result = new OptiContext<SqlDbContext, LastWinsEntity>(() => new SqlDbContext());
+            var result = new OptiContext<SqlDbContext, LastWinsEntity>(() => CreateContext());
             return result;
         }
 
@@ -204,7 +222,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         {
             Task.Run(() =>
             {
-                using (var cx = new SqlDbContext())
+                using (var cx = CreateContext())
                 {
                     var lw = cx.LastWins.FirstOrDefault(e => e.Id == id);
                     cx.LastWins.Remove(lw);

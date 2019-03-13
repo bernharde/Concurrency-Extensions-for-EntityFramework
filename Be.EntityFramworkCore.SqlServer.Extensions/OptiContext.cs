@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
-namespace Be.ManagedDataAccess.EntityFramework
+namespace Be.EntityFramworkCore.SqlServer
 {
     /// <summary>
     /// Handling simple concurrency events with the last wins strategy.
@@ -78,15 +79,9 @@ namespace Be.ManagedDataAccess.EntityFramework
             {
                 UpdateAction(cx, entity);
             }
-            catch (DbUpdateException dex)
+            catch (DbUpdateConcurrencyException dex)
             {
-                //var cex = dex.InnerException as OptimisticConcurrencyException;
-                //if (cex != null) // -> deleted in the meantime -> update not possible
-                //{
-                //    Execute_Internal(ref counter); // try again
-                //    return;
-                //}
-                //throw dex;
+                Execute_Internal(ref counter); // try again
             }
         }
 
@@ -104,17 +99,13 @@ namespace Be.ManagedDataAccess.EntityFramework
             }
             catch (DbUpdateException dex)
             {
-                //var oex = dex.InnerException?.InnerException as OracleException;
-                //if (oex != null)
-                //{
-                //    if (oex.Number == 1) // 1 = dublicate key error number
-                //    {
-                //        Execute_Internal(ref counter);
-                //        return;
-                //    }
-                //}
-
-                //throw dex;
+                var oex = dex.InnerException as SqlException;
+                if (oex?.Number == 2627)
+                {
+                    Execute_Internal(ref counter);
+                            return;
+                }
+                throw dex;
             }
         }
     }

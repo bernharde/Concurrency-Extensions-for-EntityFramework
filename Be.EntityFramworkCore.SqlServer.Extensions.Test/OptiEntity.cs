@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Be.ManagedDataAccess.EntityFramework.Test
+namespace Be.EntityFramworkCore.SqlServer.Test
 {
     [Table("XXCO")]
     public class OptiEntity

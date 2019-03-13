@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.ManagedDataAccess.EntityFramework.Test
+namespace Be.EntityFramworkCore.SqlServer.Test
 {
     [TestClass]
     public class OptisTest
@@ -10,7 +10,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         [TestMethod]
         public void AddOpti()
         {
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var opti = new OptiEntity();
                 opti.Id = Guid.NewGuid();
@@ -27,7 +27,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void AddOptiWithUpdateConflict()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var opti = new OptiEntity();
                 opti.Id = id;
@@ -48,7 +48,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
 
         public OptiContext<SqlDbContext, OptiEntity> CreateOptiContext()
         {
-            var result = new OptiContext<SqlDbContext, OptiEntity>(() => new SqlDbContext());
+            var result = new OptiContext<SqlDbContext, OptiEntity>(() => LastWins.CreateContext());
             return result;
         }
 
@@ -111,7 +111,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
             Assert.AreEqual(2, updateCounter);
 
             // check if the last row version is stored in the database
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var opti = cx.Optis.Find(id);
                 Assert.AreEqual(lastRowVersion, opti.RowVersion);
@@ -120,7 +120,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
 
         private void ModifyOpti(Guid id)
         {
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var opti = cx.Optis.Find(id);
                 opti.Value++;

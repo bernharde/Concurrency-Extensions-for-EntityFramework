@@ -8,3 +8,4 @@ App.config
 /packages
 *.nupkg
 *.user
+/Be.EntityFramworkCore.SqlServer.Extensions.Test/settings.json

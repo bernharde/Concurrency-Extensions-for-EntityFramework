@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.ManagedDataAccess.EntityFramework.Test
+namespace Be.EntityFramworkCore.SqlServer.Test
 {
     [TestClass]
     public class SaveChangesModeTest
@@ -15,7 +15,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void NotIgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -23,11 +23,14 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
                 lw.Created = lw.Updated = DateTime.Now;
                 cx.LastWins.Add(lw);
                 cx.SaveChanges(); // save first one
+            }
 
+            using (var cx = LastWins.CreateContext())
+            {
                 var lw2 = new LastWinsEntity();
                 lw2.Id = id;
                 lw2.Name = "v1";
-                lw2.Created = lw.Updated = DateTime.Now;
+                lw2.Created = lw2.Updated = DateTime.Now;
                 cx.LastWins.Add(lw2);
                 cx.SaveChanges();
             }
@@ -36,7 +39,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -44,11 +47,14 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
                 lw.Created = lw.Updated = DateTime.Now;
                 cx.LastWins.Add(lw);
                 cx.SaveChanges(); // save first one
+            }
 
+            using (var cx = LastWins.CreateContext())
+            {
                 var lw2 = new LastWinsEntity();
                 lw2.Id = id;
                 lw2.Name = "v1";
-                lw2.Created = lw.Updated = DateTime.Now;
+                lw2.Created = lw2.Updated = DateTime.Now;
                 cx.LastWins.Add(lw2);
                 cx.SaveChanges(SaveChangesMode.IgnoreEntityDublicateKey);
             }
@@ -59,7 +65,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void NotIgnoreEntityDeleted()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -80,7 +86,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDeleted2()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -100,7 +106,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDeleted()
         {
             var id = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -122,21 +128,25 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         {
             var id = Guid.NewGuid();
             var id2 = Guid.NewGuid();
-            using (var cx = new SqlDbContext())
+
+            using (var cx = LastWins.CreateContext())
+            {
+                var lw2 = new LastWinsEntity();
+                lw2.Id = id2;
+                lw2.Name = "v1";
+                lw2.Created = lw2.Updated = DateTime.Now;
+                cx.LastWins.Add(lw2);
+                cx.SaveChanges();
+            }
+
+            using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
                 lw.Name = "v1";
                 lw.Created = lw.Updated = DateTime.Now;
                 cx.LastWins.Add(lw);
-
-                var lw2 = new LastWinsEntity();
-                lw2.Id = id2;
-                lw2.Name = "v1";
-                lw2.Created = lw2.Updated = DateTime.Now;
-                cx.LastWins.Add(lw2);
-
-                cx.SaveChanges(); // add lw1 and lw2
+                cx.SaveChanges();
 
                 Delete(id); // meantime delete lw1
 
@@ -145,8 +155,8 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
 
                 var lw3 = new LastWinsEntity(); // lw3 dublicate of lw2
                 lw3.Id = id2;
-                lw2.Name = "v1";
-                lw2.Created = lw.Updated = DateTime.Now;
+                lw3.Name = "v1";
+                lw3.Created = lw3.Updated = DateTime.Now;
                 cx.LastWins.Add(lw3);
 
                 cx.SaveChanges(SaveChangesMode.All);
@@ -157,7 +167,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         {
             Task.Run(() =>
             {
-                using (var cx = new SqlDbContext())
+                using (var cx = LastWins.CreateContext())
                 {
                     var lw = cx.LastWins.FirstOrDefault(e => e.Id == id);
                     cx.LastWins.Remove(lw);
