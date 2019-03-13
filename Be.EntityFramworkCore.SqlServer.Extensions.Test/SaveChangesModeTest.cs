@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Be.ManagedDataAccess.EntityFramework.Test
@@ -15,7 +15,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void NotIgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -36,7 +36,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -59,7 +59,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void NotIgnoreEntityDeleted()
         {
             var id = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -80,7 +80,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDeleted2()
         {
             var id = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -100,7 +100,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         public void IgnoreEntityDeleted()
         {
             var id = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -122,7 +122,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         {
             var id = Guid.NewGuid();
             var id2 = Guid.NewGuid();
-            using (var cx = new OracleDbContext())
+            using (var cx = new SqlDbContext())
             {
                 var lw = new LastWinsEntity();
                 lw.Id = id;
@@ -157,7 +157,7 @@ namespace Be.ManagedDataAccess.EntityFramework.Test
         {
             Task.Run(() =>
             {
-                using (var cx = new OracleDbContext())
+                using (var cx = new SqlDbContext())
                 {
                     var lw = cx.LastWins.FirstOrDefault(e => e.Id == id);
                     cx.LastWins.Remove(lw);

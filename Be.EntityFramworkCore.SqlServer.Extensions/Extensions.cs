@@ -1,6 +1,4 @@
-﻿using Oracle.ManagedDataAccess.Client;
-using System.Data.Entity.Core;
-using System.Data.Entity.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace System.Data.Entity
 {
@@ -37,36 +35,36 @@ namespace System.Data.Entity
             {
                 if (mode == SaveChangesMode.All || mode == SaveChangesMode.IgnoreEntityDeleted)
                 {
-                    var oex = cex.InnerException as OptimisticConcurrencyException;
-                    if (oex != null) // -> deleted in the meantime -> update not possible
-                    {
-                        foreach (var entiy in cex.Entries)
-                        {
-                            entiy.State = EntityState.Detached;
-                        }
-                        redoSaveChanges = true;
-                    }
+                    //var oex = cex.InnerException as OptimisticConcurrencyException;
+                    //if (oex != null) // -> deleted in the meantime -> update not possible
+                    //{
+                    //    foreach (var entiy in cex.Entries)
+                    //    {
+                    //        entiy.State = EntityState.Detached;
+                    //    }
+                    //    redoSaveChanges = true;
+                    //}
                 }
                 if(!redoSaveChanges)
                     throw cex;
             }
             catch (DbUpdateException dex)
             {
-                var oex = dex.InnerException?.InnerException as OracleException;
-                if (oex != null)
-                {
-                    if (oex.Number == 1) // 1 = dublicate key error number
-                    {
-                        if (mode == SaveChangesMode.All || mode == SaveChangesMode.IgnoreEntityDublicateKey)
-                        {
-                            foreach (var entry in dex.Entries)
-                            {
-                                entry.State = EntityState.Detached;
-                            }
-                            redoSaveChanges = true;
-                        }
-                    }
-                }
+                //var oex = dex.InnerException?.InnerException as OracleException;
+                //if (oex != null)
+                //{
+                //    if (oex.Number == 1) // 1 = dublicate key error number
+                //    {
+                //        if (mode == SaveChangesMode.All || mode == SaveChangesMode.IgnoreEntityDublicateKey)
+                //        {
+                //            foreach (var entry in dex.Entries)
+                //            {
+                //                entry.State = EntityState.Detached;
+                //            }
+                //            redoSaveChanges = true;
+                //        }
+                //    }
+                //}
 
                 if(!redoSaveChanges)
                     throw dex;

@@ -1,8 +1,6 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data.Entity;
-using System.Data.Entity.Core;
-using System.Data.Entity.Infrastructure;
 
 namespace Be.ManagedDataAccess.EntityFramework
 {
@@ -82,13 +80,13 @@ namespace Be.ManagedDataAccess.EntityFramework
             }
             catch (DbUpdateException dex)
             {
-                var cex = dex.InnerException as OptimisticConcurrencyException;
-                if (cex != null) // -> deleted in the meantime -> update not possible
-                {
-                    Execute_Internal(ref counter); // try again
-                    return;
-                }
-                throw dex;
+                //var cex = dex.InnerException as OptimisticConcurrencyException;
+                //if (cex != null) // -> deleted in the meantime -> update not possible
+                //{
+                //    Execute_Internal(ref counter); // try again
+                //    return;
+                //}
+                //throw dex;
             }
         }
 
@@ -106,17 +104,17 @@ namespace Be.ManagedDataAccess.EntityFramework
             }
             catch (DbUpdateException dex)
             {
-                var oex = dex.InnerException?.InnerException as OracleException;
-                if (oex != null)
-                {
-                    if (oex.Number == 1) // 1 = dublicate key error number
-                    {
-                        Execute_Internal(ref counter);
-                        return;
-                    }
-                }
+                //var oex = dex.InnerException?.InnerException as OracleException;
+                //if (oex != null)
+                //{
+                //    if (oex.Number == 1) // 1 = dublicate key error number
+                //    {
+                //        Execute_Internal(ref counter);
+                //        return;
+                //    }
+                //}
 
-                throw dex;
+                //throw dex;
             }
         }
     }
