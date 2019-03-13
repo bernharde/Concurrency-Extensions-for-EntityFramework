@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.ManagedDataAccess.Entity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.ManagedDataAccess.EntityFramwork.Extensions.Test", "Be.ManagedDataAccess.EntityFramwork.Extensions.Test\Be.ManagedDataAccess.EntityFramwork.Extensions.Test.csproj", "{A6B27758-B436-468E-BC98-2C463C3E958E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.EntityFramworkCore.SqlServer.Extensions", "Be.EntityFramworkCore.SqlServer.Extensions\Be.EntityFramworkCore.SqlServer.Extensions.csproj", "{864ADFFE-68D1-4E2A-8EBF-9FDE454A9108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.EntityFramworkCore.SqlServer.Extensions", "Be.EntityFramworkCore.SqlServer.Extensions\Be.EntityFramworkCore.SqlServer.Extensions.csproj", "{864ADFFE-68D1-4E2A-8EBF-9FDE454A9108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.EntityFramworkCore.SqlServer.Extensions.Test", "Be.EntityFramworkCore.SqlServer.Extensions.Test\Be.EntityFramworkCore.SqlServer.Extensions.Test.csproj", "{E5DB8D32-16C6-4EEA-8D2D-CEE98DE2116C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.EntityFramworkCore.SqlServer.Extensions.Test", "Be.EntityFramworkCore.SqlServer.Extensions.Test\Be.EntityFramworkCore.SqlServer.Extensions.Test.csproj", "{E5DB8D32-16C6-4EEA-8D2D-CEE98DE2116C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
