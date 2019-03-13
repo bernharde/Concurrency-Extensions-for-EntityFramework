@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Be.ManagedDataAccess.EntityFramwork.Extensions.csproj</id>
+    <id>Be.EntityFramework.SqlServer.Extensions</id>
     <version>1.0.1</version>
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>
-    <projectUrl>https://github.com/bernharde/Be.ManagedDataAccess.EntityFramwork.Extensions</projectUrl>
+    <projectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Adds extension methods to deal with concurrency using Oracle.ManagedDataAccess.EntityFramework.
+    <description>Adds extension methods to deal with concurrency using EntityFramework.SqlServer.
 Contains handling for:
 - Conflict handling: Dublicate keys / Double Adds
 - Conflict handling: Add / Update
@@ -17,9 +17,9 @@ Contains handling for:
 - Ignore Dublicate key errors</description>
     <releaseNotes>This is the initial release.</releaseNotes>
     <copyright>Copyright 2019</copyright>
-    <tags>Oracle.ManagedDataAccess.EntityFramework, ODP. NET, Oracle, Entity Framework</tags>
+    <tags>EntityFramework.SqlServer, ADO. NET, Sql Server, Entity Framework</tags>
     <dependencies>
-      <dependency id="Oracle.ManagedDataAccess.EntityFramework" version="18.3" />
+      <dependency id="EntityFramework" version="6.2" />
     </dependencies>
   </metadata>
   <files>

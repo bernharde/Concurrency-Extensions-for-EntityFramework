@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Be.ManagedDataAccess.EntityFramwork.Extensions.csproj</id>
+    <id>Be.ManagedDataAccess.EntityFramwork.Extensions</id>
     <version>1.0.1</version>
     <authors>Be</authors>
     <owners>Be</owners>
