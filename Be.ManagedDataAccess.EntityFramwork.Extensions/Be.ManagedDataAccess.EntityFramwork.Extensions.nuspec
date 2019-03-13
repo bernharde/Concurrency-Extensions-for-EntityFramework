@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Be.ManagedDataAccess.EntityFramwork.Extensions.csproj</id>
-    <version>1.0.1</version>
+    <id>Be.ManagedDataAccess.EntityFramwork.Extensions</id>
+    <version>1.0.2</version>
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>
