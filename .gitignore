@@ -1,1 +1,6 @@
 /C/Be.ManagedDataAccess.EntityFramwork.Extensions.Test/App.config
+bin
+/C/Be.ManagedDataAccess.EntityFramwork.Extensions/obj
+.vs
+/C/Be.ManagedDataAccess.EntityFramwork.Extensions.Test/bin
+obj
