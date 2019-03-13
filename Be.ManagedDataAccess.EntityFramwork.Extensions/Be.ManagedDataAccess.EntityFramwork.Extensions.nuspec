@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Be.ManagedDataAccess.EntityFramwork.Extensions</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>

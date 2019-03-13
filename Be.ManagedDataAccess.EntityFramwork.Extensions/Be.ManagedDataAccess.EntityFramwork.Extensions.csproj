@@ -3,10 +3,10 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	</PropertyGroup>
-	<PropertyGroup>
-		<PackageLicenseFile>license.txt</PackageLicenseFile>
-	</PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+  </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -67,7 +67,11 @@
     <Compile Include="SaveChangesMode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Be.ManagedDataAccess.EntityFramwork.Extensions.nuspec" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="license.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
