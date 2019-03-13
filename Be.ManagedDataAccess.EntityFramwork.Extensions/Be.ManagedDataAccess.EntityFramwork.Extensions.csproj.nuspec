@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Be.ManagedDataAccess.EntityFramwork.Extensions.csproj</id>
+    <version>1.0.0</version>
+    <authors>Be</authors>
+    <owners>Be</owners>
+    <licenseUrl>https://github.com/bernharde/Be.ManagedDataAccess.EntityFramwork.Extensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/bernharde/Be.ManagedDataAccess.EntityFramwork.Extensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds Concurrency extension for Oracle.ManagedDataAccess.EntityFramework.</description>
+    <releaseNotes>This is the initial release.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Oracle.ManagedDataAccess.EntityFramework, ODP. NET, Oracle, Entity Framework</tags>
+    <dependencies>
+      <dependency id="Oracle.ManagedDataAccess.EntityFramework" version="18.3>" />
+    </dependencies>
+  </metadata>
+</package>
