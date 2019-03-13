@@ -4,3 +4,5 @@ bin
 .vs
 /C/Be.ManagedDataAccess.EntityFramwork.Extensions.Test/bin
 obj
+App.config
+/packages
