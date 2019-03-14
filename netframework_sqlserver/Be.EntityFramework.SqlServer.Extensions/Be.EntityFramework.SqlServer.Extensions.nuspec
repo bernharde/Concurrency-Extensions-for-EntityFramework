@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Be.EntityFramework.SqlServer.Extensions</id>
-    <version>1.0.1</version>
+    <version>$version$</version>
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>
