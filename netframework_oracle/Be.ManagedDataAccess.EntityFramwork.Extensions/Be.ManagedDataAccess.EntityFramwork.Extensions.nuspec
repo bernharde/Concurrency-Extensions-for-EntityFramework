@@ -6,7 +6,7 @@
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>
-    <projectUrl>https://github.com/bernharde/Be.ManagedDataAccess.EntityFramwork.Extensions</projectUrl>
+    <projectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Adds extension methods to deal with concurrency using Oracle.ManagedDataAccess.EntityFramework.
 Contains handling for:
