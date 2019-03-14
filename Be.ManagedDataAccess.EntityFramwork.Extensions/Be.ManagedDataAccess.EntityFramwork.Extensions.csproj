@@ -67,7 +67,9 @@
     <Compile Include="SaveChangesMode.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Be.ManagedDataAccess.EntityFramwork.Extensions.nuspec" />
+    <None Include="Be.ManagedDataAccess.EntityFramwork.Extensions.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
