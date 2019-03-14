@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.EntityFramworkCore.SqlServer.Extensions", "netcore_sqlserver\Be.EntityFramworkCore.SqlServer.Extensions\Be.EntityFramworkCore.SqlServer.Extensions.csproj", "{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DAE6BC9-0201-4D71-B4B0-DB76C3FD04A1}
+	EndGlobalSection
+EndGlobal
