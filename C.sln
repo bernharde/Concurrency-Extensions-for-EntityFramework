@@ -3,7 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.EntityFramworkCore.SqlServer.Extensions", "netcore_sqlserver\Be.EntityFramworkCore.SqlServer.Extensions\Be.EntityFramworkCore.SqlServer.Extensions.csproj", "{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.EntityFramworkCore.SqlServer.Extensions.Test", "netcore_sqlserver\Be.EntityFramworkCore.SqlServer.Extensions.Test\Be.EntityFramworkCore.SqlServer.Extensions.Test.csproj", "{D6242D5D-9FAD-43C3-81F2-75D08D8C498B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.ManagedDataAccess.EntityFramwork.Extensions", "netframework_oracle\Be.ManagedDataAccess.EntityFramwork.Extensions\Be.ManagedDataAccess.EntityFramwork.Extensions.csproj", "{1D03A463-DEB0-41B8-B3FA-3A3F5223625F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.ManagedDataAccess.EntityFramwork.Extensions.Test", "netframework_oracle\Be.ManagedDataAccess.EntityFramwork.Extensions.Test\Be.ManagedDataAccess.EntityFramwork.Extensions.Test.csproj", "{A6B27758-B436-468E-BC98-2C463C3E958E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.EntityFramework.SqlServer.Extensions", "netframework_sqlserver\Be.EntityFramework.SqlServer.Extensions\Be.EntityFramework.SqlServer.Extensions.csproj", "{2E9D9989-BDB4-4B50-BC4E-7294D5A62522}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Be.EntityFramework.SqlServer.Extensions.Test", "netframework_sqlserver\Be.EntityFramework.SqlServer.Extensions.Test\Be.EntityFramework.SqlServer.Extensions.Test.csproj", "{22652F81-B4EE-4EDF-A28F-1BC19A1DA13F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFA46102-27F1-4DCA-9E61-C9C828B8BA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6242D5D-9FAD-43C3-81F2-75D08D8C498B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6242D5D-9FAD-43C3-81F2-75D08D8C498B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6242D5D-9FAD-43C3-81F2-75D08D8C498B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6242D5D-9FAD-43C3-81F2-75D08D8C498B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D03A463-DEB0-41B8-B3FA-3A3F5223625F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D03A463-DEB0-41B8-B3FA-3A3F5223625F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D03A463-DEB0-41B8-B3FA-3A3F5223625F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D03A463-DEB0-41B8-B3FA-3A3F5223625F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6B27758-B436-468E-BC98-2C463C3E958E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B27758-B436-468E-BC98-2C463C3E958E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B27758-B436-468E-BC98-2C463C3E958E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B27758-B436-468E-BC98-2C463C3E958E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9D9989-BDB4-4B50-BC4E-7294D5A62522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9D9989-BDB4-4B50-BC4E-7294D5A62522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9D9989-BDB4-4B50-BC4E-7294D5A62522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9D9989-BDB4-4B50-BC4E-7294D5A62522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22652F81-B4EE-4EDF-A28F-1BC19A1DA13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22652F81-B4EE-4EDF-A28F-1BC19A1DA13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22652F81-B4EE-4EDF-A28F-1BC19A1DA13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22652F81-B4EE-4EDF-A28F-1BC19A1DA13F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
