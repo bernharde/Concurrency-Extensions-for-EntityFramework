@@ -69,12 +69,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Be.EntityFramework.SqlServer.Extensions\Be.EntityFramework.SqlServer.Extensions.csproj">
-      <Project>{2e9d9989-bdb4-4b50-bc4e-7294d5a62522}</Project>
-      <Name>Be.EntityFramework.SqlServer.Extensions</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
