@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <FileVersion>1.0.2.0</FileVersion>
     <Authors>Be</Authors>
@@ -29,7 +29,7 @@ Contains handling for:
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="license.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="license.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
   </ItemGroup>
 
 </Project>
