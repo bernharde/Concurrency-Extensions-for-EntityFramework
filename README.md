@@ -30,6 +30,12 @@ The following extensions can be used to dial with concurrency in Entity Framewor
 - Context 2 deletes the entity X
 - Context 1 update the entity X
 -> Concurrency Exception will be thrown
+#### Situation Sample 2:
+- Context 1 selects the entity X
+- Context 2 selects the entity X
+- Context 2 updates entity X and SaveChanges
+- Context 1 updates entity X and SaveChanges
+-> Concurrency Exception will be thrown because RowVersion changes
 
 #### Solution: Use OptiContext
 ```csharp
