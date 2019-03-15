@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -15,7 +15,6 @@ Contains handling for:
 - Ignore Deleted in the meantime errors
 - Ignore Dublicate key errors</Description>
     <Copyright>Copyright ©Be 2019</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</RepositoryUrl>
     <PackageTags>EntityFrameworkCore.SqlServer, ADO. NET, Sql Server, Entity Framework, .NET Core</PackageTags>
@@ -24,6 +23,13 @@ Contains handling for:
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.3" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="license.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
   </ItemGroup>
 
 </Project>
