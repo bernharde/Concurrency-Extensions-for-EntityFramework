@@ -1,4 +1,4 @@
- Concurrency Extension for Entity Framework
+# Concurrency Extension for Entity Framework
 The following extensions can be used to dial with concurrency in Entity Framework. At the moment there exists three different implementations and the according nuget packages
 
 ## Be.EntityFramework.SqlServer.Extensions
@@ -16,14 +16,75 @@ The following extensions can be used to dial with concurrency in Entity Framewor
 - .NET Framework
 - https://www.nuget.org/packages/Be.ManagedDataAccess.EntityFramwork.Extensions/
 
-Ignore options
-Concurrency problem: Update
-Concurrency problem: Dublicate Key
-- If you add a entity with a primary key, 
-- and another user created an entity with the same primary key
--> Dublicate key error could occur
+## Features
+- Conflict handling: "AddOrUpdate" / "Upsert" handler (OptiContext)
+- Conflict handling: Dublicate keys / Double Adds (OptiContext)
+- Ignore: Update, but deleted in the meantime (SaveChangesMode)
+- Ignore: Two Adds resulting in Dublicate key -> LastWins
 
-Sample: How to ignore dublicate key errors
+
+## Samples
+### Sample: AddOrUpdate / Upsert - Optimistic Concurrency Handler
+#### Situtation Sample 1:
+- Context 1 selects the entity X
+- Context 2 deletes the entity X
+- Context 1 update the entity X
+-> Concurrency Exception will be thrown
+
+#### Solution: Use OptiContext
+```csharp
+public void AddOrUpdate()
+{
+    var id = Guid.NewGuid();
+    var initialRowVersion = Guid.NewGuid();
+    var lastRowVersion = Guid.NewGuid();
+    
+    // Create a new OptiContext. 
+    // - Pass a factory method to create a new DbContext
+    var oc = new OptiContext<SqlDbContext, OptiEntity>(() => new SqlDbContext());
+
+    // defines the method to select an entity
+    oc.SelectFunc = (cx) =>
+    {
+        var i = cx.Optis.Find(id);
+        return i;
+    };
+
+    // defines the method to add an entity, if select returns no entity
+    oc.AddAction = (cx) =>
+    {
+        var oe = new OptiEntity();
+        oe.Id = id;
+        oe.Value = 0;
+        oe.Created = oe.Updated = DateTime.Now;
+        oe.RowVersion = initialRowVersion;
+        cx.Optis.Add(oe);
+        cx.SaveChanges();
+    };
+
+    // defines the method to update the entity, if select returns a entity
+    oc.UpdateAction = (cx, oe) =>
+    {
+        // update the entity
+        lastRowVersion = Guid.NewGuid();
+        oe.Value++;
+        oe.Created = oe.Updated = DateTime.Now;
+        oe.RowVersion = lastRowVersion;
+        cx.SaveChanges();
+    };
+
+    // initial add opti entity
+    oc.Execute();
+}
+```
+#### Explanation
+Note1: The SelectFunc, AddAction and UpdateAction could be called multiple times if and until
+- no ConcurrencyException occurs
+- or MaxRetryLimit (Extensions.MaxRetryLimit) is reached (=> will throw a MaxRetryReachedException)
+Note2: Constructor of the OptiContext needs a factory to create a new DbContext
+- Everytime a ConcurrencyException occurs a new DbContext instance is created to reduce cache issues.
+
+### Sample: How to ignore dublicate key errors
 ```csharp
 public void IgnoreEntityDublicateKeyError()
 {
@@ -50,6 +111,8 @@ public void IgnoreEntityDublicateKeyError()
         lw2.Name = "v1";
         lw2.Created = lw2.Updated = DateTime.Now;
         cx.LastWins.Add(lw2);
+        
+        // ignore dublicate key errors. Entity will not be stored in the database! No exception will be thrown
         cx.SaveChanges(SaveChangesMode.IgnoreEntityDublicateKey);
     }
 }
