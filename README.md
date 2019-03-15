@@ -29,15 +29,16 @@ The following extensions can be used to dial with concurrency in Entity Framewor
 - Context 1 selects the entity X
 - Context 2 deletes the entity X
 - Context 1 update the entity X
+##### Result
+Concurrency Exception will be thrown
 
-= Concurrency Exception will be thrown
 #### Situation Sample 2:
 - Context 1 selects the entity X
 - Context 2 selects the entity X
 - Context 2 updates entity X and SaveChanges
 - Context 1 updates entity X and SaveChanges
-
-= Concurrency Exception will be thrown because RowVersion changes
+##### Result
+Concurrency Exception will be thrown because RowVersion is having the ConcurrencyCheck attribute and has changed in the meantime
 
 #### Solution: Use OptiContext
 ```csharp
@@ -96,8 +97,8 @@ Note2: Constructor of the OptiContext needs a factory to create a new DbContext
 #### Situation 1
 - Entity X is added
 - Entity Y with the same primary key as X is added
-
-= Entity Y SaveChanges will throw a Dublicate key error
+##### Result
+Entity Y SaveChanges will throw a Dublicate key error
 #### Solution
 Use SaveChangesMode.IgnoreEntityDublicateKey
 ```csharp
