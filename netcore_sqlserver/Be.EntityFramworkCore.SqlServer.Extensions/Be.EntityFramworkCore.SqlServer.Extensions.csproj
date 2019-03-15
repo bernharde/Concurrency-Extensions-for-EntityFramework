@@ -2,6 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Authors>Be</Authors>
+    <Company>Be</Company>
+    <Description>Adds extension methods to deal with concurrency using EntityFramework.SqlServer.
+Contains handling for:
+- Conflict handling: Dublicate keys / Double Adds
+- Conflict handling: Add / Update
+- Conflict handling: Update but deleted in the meantime
+- Ignore Deleted in the meantime errors
+- Ignore Dublicate key errors</Description>
+    <Copyright>Copyright ©Be 2019</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</RepositoryUrl>
+    <PackageTags>EntityFrameworkCore.SqlServer, ADO. NET, Sql Server, Entity Framework, .NET Core</PackageTags>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

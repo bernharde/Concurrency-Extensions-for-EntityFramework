@@ -16,7 +16,7 @@ Contains handling for:
 - Ignore Deleted in the meantime errors
 - Ignore Dublicate key errors</description>
     <releaseNotes>This is the initial release.</releaseNotes>
-    <copyright>Copyright 2019</copyright>
+    <copyright>Copyright ©Be 2019</copyright>
     <tags>EntityFramework.SqlServer, ADO. NET, Sql Server, Entity Framework</tags>
     <dependencies>
       <dependency id="EntityFramework" version="6.2" />
