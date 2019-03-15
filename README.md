@@ -1,5 +1,20 @@
-# Be.ManagedDataAccess.EntityFramwork.Extensions
-Extensions used to dial with concurrency in Entity Framework with Oracle.ManagedDataAccess.
+ Concurrency Extension for Entity Framework
+The following extensions can be used to dial with concurrency in Entity Framework. At the moment there exists three different implementations and the according nuget packages
+
+## Be.EntityFramework.SqlServer.Extensions
+- for EntityFramework
+- .NET Framework
+- https://www.nuget.org/packages/Be.EntityFramework.SqlServer.Extensions/
+
+## Be.EntityFramworkCore.SqlServer.Extensions
+- for Microsoft.EntityFrameworkCore
+- .NET Core 2.x
+- https://www.nuget.org/packages/Be.EntityFramworkCore.SqlServer.Extensions/
+
+## Be.ManagedDataAccess.EntityFramwork.Extensions
+- for Oracle.ManagedDataAccess.EntityFramework
+- .NET Framework
+- https://www.nuget.org/packages/Be.ManagedDataAccess.EntityFramwork.Extensions/
 
 Ignore options
 Concurrency problem: Update
