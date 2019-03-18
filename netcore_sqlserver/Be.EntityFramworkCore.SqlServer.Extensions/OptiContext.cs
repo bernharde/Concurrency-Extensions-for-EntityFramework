@@ -3,7 +3,7 @@ using System;
 using System.Data.Entity;
 using System.Data.SqlClient;
 
-namespace Be.EntityFramworkCore.SqlServer
+namespace Be.EntityFrameworkCore.SqlServer
 {
     /// <summary>
     /// Handling simple concurrency events with the last wins strategy.

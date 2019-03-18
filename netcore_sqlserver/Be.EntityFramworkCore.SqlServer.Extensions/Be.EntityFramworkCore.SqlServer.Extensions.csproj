@@ -26,6 +26,9 @@ Contains handling for:
   </ItemGroup>
   <PropertyGroup>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageId>Be.EntityFrameworkCore.SqlServer.Extensions</PackageId>
+    <AssemblyName>Be.EntityFrameworkCore.SqlServer.Extensions</AssemblyName>
+    <RootNamespace>Be.EntityFrameworkCore.SqlServer.Extensions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

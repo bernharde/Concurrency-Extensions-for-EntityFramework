@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.EntityFramworkCore.SqlServer.Test
+namespace Be.EntityFrameworkCore.SqlServer.Test
 {
     [TestClass]
     public class OptisTest
@@ -116,6 +116,52 @@ namespace Be.EntityFramworkCore.SqlServer.Test
                 var opti = cx.Optis.Find(id);
                 Assert.AreEqual(lastRowVersion, opti.RowVersion);
             }
+        }
+
+        [TestMethod]
+
+        public void AddOrUpdate()
+        {
+            var id = Guid.NewGuid();
+            var initialRowVersion = Guid.NewGuid();
+            var lastRowVersion = Guid.NewGuid();
+
+            // Create a new OptiContext. 
+            // - Pass a factory method to create a new DbContext
+            var oc = new OptiContext<SqlDbContext, OptiEntity>(() => LastWins.CreateContext());
+
+            // defines the method to select an entity
+            oc.SelectFunc = (cx) =>
+            {
+                var i = cx.Optis.Find(id);
+                return i;
+            };
+
+            // defines the method to add an entity, if select returns no entity
+            oc.AddAction = (cx) =>
+            {
+                var oe = new OptiEntity();
+                oe.Id = id;
+                oe.Value = 0;
+                oe.Created = oe.Updated = DateTime.Now;
+                oe.RowVersion = initialRowVersion;
+                cx.Optis.Add(oe);
+                cx.SaveChanges();
+            };
+
+            // defines the method to update the entity, if select returns a entity
+            oc.UpdateAction = (cx, oe) =>
+            {
+                // update the entity
+                lastRowVersion = Guid.NewGuid();
+                oe.Value++;
+                oe.Created = oe.Updated = DateTime.Now;
+                oe.RowVersion = lastRowVersion;
+                cx.SaveChanges();
+            };
+
+            // initial add opti entity
+            oc.Execute();
         }
 
         private void ModifyOpti(Guid id)

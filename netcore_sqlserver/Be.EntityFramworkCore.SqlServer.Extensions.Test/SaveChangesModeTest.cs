@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.EntityFramworkCore.SqlServer.Test
+namespace Be.EntityFrameworkCore.SqlServer.Test
 {
     [TestClass]
     public class SaveChangesModeTest
@@ -15,6 +15,8 @@ namespace Be.EntityFramworkCore.SqlServer.Test
         public void NotIgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
+
+            // create first entity with id
             using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
@@ -25,6 +27,7 @@ namespace Be.EntityFramworkCore.SqlServer.Test
                 cx.SaveChanges(); // save first one
             }
 
+            // create second entity with same id -> will throw a DbUpdateException
             using (var cx = LastWins.CreateContext())
             {
                 var lw2 = new LastWinsEntity();
@@ -39,6 +42,8 @@ namespace Be.EntityFramworkCore.SqlServer.Test
         public void IgnoreEntityDublicateKeyError()
         {
             var id = Guid.NewGuid();
+
+            // create first entity with id (primary key)
             using (var cx = LastWins.CreateContext())
             {
                 var lw = new LastWinsEntity();
@@ -49,6 +54,9 @@ namespace Be.EntityFramworkCore.SqlServer.Test
                 cx.SaveChanges(); // save first one
             }
 
+            // create second entity with same id (primary key) 
+            // -> Dublicate key error will be ignored, 
+            // -> second entity will not be added to db
             using (var cx = LastWins.CreateContext())
             {
                 var lw2 = new LastWinsEntity();

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.EntityFramworkCore.SqlServer.Test
+namespace Be.EntityFrameworkCore.SqlServer.Test
 {
     [TestClass]
     public class LastWins
