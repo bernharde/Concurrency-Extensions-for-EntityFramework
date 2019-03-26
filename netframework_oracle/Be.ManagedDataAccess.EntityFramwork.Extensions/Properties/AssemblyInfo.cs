@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Be.ManagedDataAccess.EntityFramwork.Extensions")]
+[assembly: AssemblyTitle("Be.ManagedDataAccess.EntityFramework.Extensions")]
 [assembly: AssemblyDescription("Adds extension methods to deal with concurrency using Oracle.ManagedDataAccess.EntityFramework. Contains AddOrUpdate like behaviors and more.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Be")]
-[assembly: AssemblyProduct("Be.ManagedDataAccess.EntityFramwork.Extensions")]
+[assembly: AssemblyProduct("Be.ManagedDataAccess.EntityFramework.Extensions")]
 [assembly: AssemblyCopyright("Copyright ©Be 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

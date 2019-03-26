@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Be.EntityFramwork.SqlServer.Test
+namespace Be.EntityFramework.SqlServer.Test
 {
     public class SqlDbContext : DbContext
     {

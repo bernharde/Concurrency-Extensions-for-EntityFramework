@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Be.EntityFramwork.SqlServer.Test
+namespace Be.EntityFramework.SqlServer.Test
 {
     [Table("XXCL")]
     public class LastWinsEntity

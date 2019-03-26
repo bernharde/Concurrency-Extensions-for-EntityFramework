@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Be.ManagedDataAccess.EntityFramwork.Extensions</id>
+    <id>Be.ManagedDataAccess.EntityFramework.Extensions</id>
     <version>$version$</version>
     <authors>Be</authors>
     <owners>Be</owners>
     <license type="file">license.txt</license>
-    <projectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramwork</projectUrl>
+    <projectUrl>https://github.com/bernharde/Concurrency-Extensions-for-EntityFramework</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Adds extension methods to deal with concurrency using Oracle.ManagedDataAccess.EntityFramework.
 Contains handling for:

@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Be.ManagedDataAccess.EntityFramwork.Extensions.Test")]
+[assembly: AssemblyTitle("Be.ManagedDataAccess.EntityFramework.Extensions.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("bemento - Bernhard Elbl")]
-[assembly: AssemblyProduct("Be.ManagedDataAccess.EntityFramwork.Extensions.Test")]
+[assembly: AssemblyProduct("Be.ManagedDataAccess.EntityFramework.Extensions.Test")]
 [assembly: AssemblyCopyright("Copyright ©Be 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

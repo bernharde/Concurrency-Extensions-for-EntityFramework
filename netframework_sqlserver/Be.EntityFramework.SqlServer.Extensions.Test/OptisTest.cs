@@ -2,7 +2,7 @@
 using System.Data.Entity.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.EntityFramwork.SqlServer.Test
+namespace Be.EntityFramework.SqlServer.Test
 {
     [TestClass]
     public class OptisTest

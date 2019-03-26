@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Be.EntityFramwork.SqlServer
+namespace Be.EntityFramework.SqlServer
 {
     public class MaxRetriesReachedException : Exception
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Be.EntityFramwork.SqlServer.Test
+namespace Be.EntityFramework.SqlServer.Test
 {
     [TestClass]
     public class LastWins
