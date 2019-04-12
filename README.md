@@ -1,4 +1,4 @@
-# Concurrency Extension for Entity Framework
+# Concurrency Extensions for Entity Framework
 The following extensions can be used to dial with concurrency in Entity Framework. At the moment there exists three different implementations and the according nuget packages
 
 ## Be.EntityFramework.SqlServer.Extensions
