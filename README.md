@@ -6,10 +6,10 @@ The following extensions can be used to dial with concurrency in Entity Framewor
 - .NET Framework
 - https://www.nuget.org/packages/Be.EntityFramework.SqlServer.Extensions/
 
-## Be.EntityFramworkCore.SqlServer.Extensions
+## Be.EntityFrameworkCore.SqlServer.Extensions
 - for Microsoft.EntityFrameworkCore
 - .NET Core 2.x
-- https://www.nuget.org/packages/Be.EntityFramworkCore.SqlServer.Extensions/
+- https://www.nuget.org/packages/Be.EntityFrameworkCore.SqlServer.Extensions/
 
 ## Be.ManagedDataAccess.EntityFramwork.Extensions
 - for Oracle.ManagedDataAccess.EntityFramework
