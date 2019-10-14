@@ -76,7 +76,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Be.ManagedDataAccess.EntityFramwork.Extensions\Be.ManagedDataAccess.EntityFramwork.Extensions.csproj">
+    <ProjectReference Include="..\Be.ManagedDataAccess.EntityFramework.Extensions\Be.ManagedDataAccess.EntityFramework.Extensions.csproj">
       <Project>{1d03a463-deb0-41b8-b3fa-3a3f5223625f}</Project>
       <Name>Be.ManagedDataAccess.EntityFramwork.Extensions</Name>
     </ProjectReference>

@@ -11,10 +11,10 @@ The following extensions can be used to dial with concurrency in Entity Framewor
 - .NET Core 2.x
 - https://www.nuget.org/packages/Be.EntityFrameworkCore.SqlServer.Extensions/
 
-## Be.ManagedDataAccess.EntityFramwork.Extensions
+## Be.ManagedDataAccess.EntityFramework.Extensions
 - for Oracle.ManagedDataAccess.EntityFramework
 - .NET Framework
-- https://www.nuget.org/packages/Be.ManagedDataAccess.EntityFramwork.Extensions/
+- https://www.nuget.org/packages/Be.ManagedDataAccess.EntityFramework.Extensions/
 
 ## Features
 - Conflict handling: "AddOrUpdate" / "Upsert" handler (OptiContext)
